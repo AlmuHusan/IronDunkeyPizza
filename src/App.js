@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import {Navbar,Nav} from 'react-bootstrap'
-import React, { Component } from 'react';
+import React from 'react';
 import Order from './Order.js';
 import Home from './Home.js';
 import About from './About';
@@ -34,7 +33,7 @@ class App extends React.Component{
   return (
     <div>
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="">React-Bootstrap</Navbar.Brand>
+      <Navbar.Brand href="">Iron Donkey Pizza</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">

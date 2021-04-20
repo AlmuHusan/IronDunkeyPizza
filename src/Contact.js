@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import {Navbar,Nav} from 'react-bootstrap'
-import React, { Component } from 'react';
+import React from 'react';
 class Contact extends React.Component{
 
   constructor(props) {

@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 class Desserts extends React.Component{
 
   constructor(props) {

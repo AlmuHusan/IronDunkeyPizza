@@ -1,6 +1,6 @@
 
-import React, { Component } from 'react';
-class basicInfo extends React.Component{
+import React from 'react';
+class BasicInfo extends React.Component{
 
   constructor(props) {
           super(props);
@@ -30,4 +30,4 @@ class basicInfo extends React.Component{
   }
 }
 
-export default basicInfo;
+export default BasicInfo;

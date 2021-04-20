@@ -1,17 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-import {Navbar,Nav} from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
-import React, { Component } from 'react';
+import React from 'react';
 import Desserts from './components/Desserts';
 import Drinks from './components/Drinks';
 import Appetizers from './components/Appetizers';
 import Pizza from './components/Pizza';
-import basicInfo from './components/basicInfo';
+import BasicInfo from './components/BasicInfo';
+import OrderList from './components/OrderList';
 class Home extends React.Component{
 
   constructor(props) {
@@ -19,7 +18,7 @@ class Home extends React.Component{
           this.state = {
               loaded: false,
               regions: 'All Region',
-
+              order:[]
           };
 
 
@@ -27,7 +26,12 @@ class Home extends React.Component{
       componentDidMount = async () => {
           this.setState({ loaded: true })
       }
-
+      addOrder=(orderData)=>{
+          var processOrder= this.state.order;
+          processOrder.push(orderData)
+          this.setState({order:processOrder})
+          console.log(this.state.order)
+      }
 
   
   render(){
@@ -42,10 +46,10 @@ class Home extends React.Component{
         <div>Order Details:</div>
     <Tabs defaultActiveKey="basicInfo" transition={false} id="noanim-tab-example">
         <Tab eventKey="basicInfo" title="Basic Information">
-            <basicInfo/>       
+            <BasicInfo/>       
         </Tab>
         <Tab eventKey="pizza" title="Pizza">
-            <Pizza/>
+            <Pizza addOrderFunc={this.addOrder}/>
 
         </Tab>
         <Tab eventKey="appetizers" title="Appetizers">
@@ -60,7 +64,7 @@ class Home extends React.Component{
     </Tabs>
     </Col>
     <Col sm={2}>
-        <div>Order List:</div>
+        <OrderList orderList={this.state.order} />
         
         
         </Col>
