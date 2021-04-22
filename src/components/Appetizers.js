@@ -1,5 +1,7 @@
 
 import React from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 class Appetizers extends React.Component{
 
   constructor(props) {
@@ -17,14 +19,52 @@ class Appetizers extends React.Component{
       }
 
 
-  
+  appetizerSubmit=(event)=>{
+    event.preventDefault();
+    if(event.target.cookie.checked) {
+      var newOrder={menuType:"Appetizer",size:"",item:"Cookie", price:1};
+      this.props.addOrderFunc(newOrder);
+    }
+    if(event.target.brownie.checked) {
+      var newOrder={menuType:"Appetizer",size:"",item:"Brownie", price:1.5};
+      this.props.addOrderFunc(newOrder);
+      }
+    if(event.target.sixChicken.checked) {
+      var newOrder={menuType:"Appetizer",size:"",item:"6pc. Chicken Wing", price:4};
+      this.props.addOrderFunc(newOrder);
+      }
+    if(event.target.twelveChicken.checked) {
+      var newOrder={menuType:"Appetizer",size:"",item:"12pc. Chicken Wing", price:7.5};
+      this.props.addOrderFunc(newOrder);
+      }
+    if(event.target.sixBuffalo.checked) {
+      var newOrder={menuType:"Appetizer",size:"",item:"6pc. Buffalo Wing", price:4};
+      this.props.addOrderFunc(newOrder);
+      }
+    if(event.target.twelveBuffalo.checked) {
+      var newOrder={menuType:"Appetizer",size:"",item:"12pc. Buffalo Wing", price:7.5};
+      this.props.addOrderFunc(newOrder);
+      }
+  }
   render(){
 
 
 
   return (
-    
-    <div>Appetizers</div>
+    <div>
+    <h1>Add some appetizers!</h1>
+    <Form onSubmit={this.appetizerSubmit}>
+    <Form.Label>Appetizers:</Form.Label>
+    <Form.Check id="cookie" label="Cookie $1.00" />
+    <Form.Check id="brownie" label="Brownie $1.50" />
+    <Form.Check id="sixChicken" label="6pc. Chicken Wing $4.00" />
+    <Form.Check id="twelveChicken" label="12pc. Chicken Wing $7.50" />
+    <Form.Check id="sixBuffalo" label="6pc. Buffalo Wing $4.00" />
+    <Form.Check id="twelveBuffalo" label="12pc. Buffalo Wing $7.50" />
+    <br/>
+    <Button type="submit">Add to Order</Button>
+  </Form>
+    </div>
     );
 
   }

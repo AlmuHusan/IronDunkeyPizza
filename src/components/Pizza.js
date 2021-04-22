@@ -23,25 +23,26 @@ class Pizza extends React.Component{
 
   pizzaSubmit=(event)=>{
     event.preventDefault();
-    var sizes=["smallSize","mediumSize","largeSize"];
-    var newOrder={type:"Pizza",properties:{}};
-    console.log(event);
-    console.log(event.target.smallSize.checked);
-
-    if(event.target.smallSize.checked) 
-      newOrder.properties["Size"]="Small";
-    else if(event.target.mediumSize.checked)
-      newOrder.properties["Size"]="Medium";
-    else
-      newOrder.properties["Size"]="Large";
-    var toppings=[];
+    var newOrder={menuType:"Pizza",size:"",item:"", price:0};
+    
+    if(event.target.smallSize.checked){ 
+      newOrder.size="Small";
+      newOrder.price=3.75;
+    }
+    else if(event.target.mediumSize.checked){
+      newOrder.size="Medium";
+      newOrder.price=6.00;
+    }
+    else{
+      newOrder.size="Large";
+      newOrder.price=9.00;
+    }
     if(event.target.cheese.checked) 
-      toppings.push("chesse");
+      newOrder.item="Chesse";
     else if(event.target.peperoni.checked)
-      toppings.push("peperoni");
+      newOrder.item="Peperoni";
     else
-      toppings.push("bananas");
-    newOrder.properties["Toppings"]=toppings;
+      newOrder.item="Bananas";
     this.props.addOrderFunc(newOrder);
   }
   render(){
@@ -54,25 +55,25 @@ class Pizza extends React.Component{
     <Form onSubmit={this.pizzaSubmit}>
     <fieldset>
     <Form.Group as={Row}>
-      <Form.Label as="legend" column sm={2}>
+      <Form.Label as="legend" column sm={1}>
         Size
       </Form.Label>
       <Col sm={10}>
         <Form.Check
           type="radio"
-          label="Small"
+          label="Small $3.75"
           name="sizes"
           id="smallSize"
         />
         <Form.Check
           type="radio"
-          label="Medium"
+          label="Medium $6.00"
           name="sizes"
           id="mediumSize"
         />
         <Form.Check
           type="radio"
-          label="Large"
+          label="Large $9.00"
           name="sizes"
           id="largeSize"
         />
@@ -83,7 +84,8 @@ class Pizza extends React.Component{
     <Form.Check id="cheese" label="Cheese" />
     <Form.Check id="peperoni" label="Peperoni" />
     <Form.Check id="bananas" label="Bananas" />
-    <Button type="submit">Submit</Button>
+    <br/>
+    <Button type="submit">Add to Order</Button>
   </Form>
     </div>
     );

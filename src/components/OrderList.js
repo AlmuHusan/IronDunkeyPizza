@@ -21,23 +21,32 @@ class OrderList extends React.Component{
   render(){
 
 
+
     console.log("UPDATE");
     console.log(this.props.orderList);
+    var price =0;
+    if(this.props.orderList.length>0){
     var orderList=this.props.orderList.map((order,index)=>
         <div key={index}>
-        {order.type}
+        {order.size} {order.item} {order.menuType}: ${order.price}
+       
         </div>
         );
-
-  console.log(orderList);
+    for (var i = 0; i < this.props.orderList.length; i++) {
+        price+=this.props.orderList[i].price;
+      } 
+    }
   return (
       
     <div>
-    <div>OrderList:</div>
+    
+    <h3>Order List:</h3>
     {orderList ?
     <React.Fragment >{orderList}</React.Fragment>
     : 
-    <React.Fragment></React.Fragment>  }         
+    <React.Fragment></React.Fragment>  } 
+  
+    <b>Total Cost: ${price}</b>
     </div>
     );
 

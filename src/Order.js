@@ -42,8 +42,8 @@ class Home extends React.Component{
     
     <Container>
   <Row>
-    <Col sm={9}>
-        <div>Order Details:</div>
+    <Col sm={7}>
+
     <Tabs defaultActiveKey="basicInfo" transition={false} id="noanim-tab-example">
         <Tab eventKey="basicInfo" title="Basic Information">
             <BasicInfo/>       
@@ -53,22 +53,21 @@ class Home extends React.Component{
 
         </Tab>
         <Tab eventKey="appetizers" title="Appetizers">
-            <Appetizers/>
+            <Appetizers addOrderFunc={this.addOrder}/>
         </Tab>
         <Tab eventKey="drinks" title="Drinks">
-            <Drinks/>
+            <Drinks addOrderFunc={this.addOrder}/>
         </Tab>
         <Tab eventKey="desserts" title="Deserts">
-            <Desserts/>
+            <Desserts addOrderFunc={this.addOrder}/>
         </Tab>
     </Tabs>
     </Col>
-    <Col sm={2}>
+    <Col sm={4}>
         <OrderList orderList={this.state.order} />
-        
-        
-        </Col>
+    </Col>
   </Row>
+
   </Container>
     );
 
