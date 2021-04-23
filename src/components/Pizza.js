@@ -23,7 +23,7 @@ class Pizza extends React.Component{
 
   pizzaSubmit=(event)=>{
     event.preventDefault();
-    var newOrder={menuType:"Pizza",size:"",item:"", price:0};
+    var newOrder={menuType:"Pizza",size:"",item:"",toppings:[], price:0};
     
     if(event.target.smallSize.checked){ 
       newOrder.size="Small";
@@ -38,11 +38,11 @@ class Pizza extends React.Component{
       newOrder.price=9.00;
     }
     if(event.target.cheese.checked) 
-      newOrder.item="Chesse";
-    else if(event.target.peperoni.checked)
-      newOrder.item="Peperoni";
-    else
-      newOrder.item="Bananas";
+      newOrder.toppings.push("Chesse");
+    if(event.target.peperoni.checked)
+      newOrder.toppings.push("Peperoni");
+    if(event.target.bananas.checked)
+      newOrder.toppings.push("Bananas");
     this.props.addOrderFunc(newOrder);
   }
   render(){
@@ -76,6 +76,7 @@ class Pizza extends React.Component{
           label="Large $9.00"
           name="sizes"
           id="largeSize"
+          defaultChecked="true"
         />
       </Col>
     </Form.Group>
