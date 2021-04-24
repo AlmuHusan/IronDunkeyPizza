@@ -31,7 +31,7 @@ class EditSubmitOrder extends React.Component{
       return(
         <tr key={index}>
         <th>{order.size} {toppings} {order.item} {order.menuType}: ${order.price.toFixed(2)}</th>
-        <th><Button size="sm" variant="danger" onClick={()=>this.props.deleteOrderFunc(order)}>Delete Order</Button></th>
+        <th><Button size="sm" variant="danger" onClick={()=>this.props.deleteOrderFunc(order)}>Delete Item</Button></th>
         </tr>);
       }
         );
