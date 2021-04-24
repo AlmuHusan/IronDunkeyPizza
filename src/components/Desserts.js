@@ -22,19 +22,19 @@ componentDidMount = async () => {
 appetizerSubmit=(event)=>{
 event.preventDefault();
 if(event.target.icecream.checked) {
-var newOrder={menuType:"Desert",size:"",item:"Ice Cream", toppings:[], price:3};
+var newOrder={id:this.props.orderLength,menuType:"Desert",size:"",item:"Ice Cream", toppings:[], price:3};
 this.props.addOrderFunc(newOrder);
 }
 if(event.target.cookie.checked) {
-var newOrder={menuType:"Desert",size:"",item:"Cookie",toppings:[],  price:1};
+var newOrder={id:this.props.orderLength,menuType:"Desert",size:"",item:"Cookie",toppings:[],  price:1};
 this.props.addOrderFunc(newOrder);
 }
 if(event.target.brownie.checked) {
-var newOrder={menuType:"Desert",size:"",item:"Brownie", toppings:[], price:2};
+var newOrder={id:this.props.orderLength,menuType:"Desert",size:"",item:"Brownie", toppings:[], price:2};
 this.props.addOrderFunc(newOrder);
 }
 if(event.target.churro.checked) {
-var newOrder={menuType:"Desert",size:"",item:"Churro",toppings:[],  price:1.5};
+var newOrder={id:this.props.orderLength,menuType:"Desert",size:"",item:"Churro",toppings:[],  price:1.5};
 this.props.addOrderFunc(newOrder);
 }
 

@@ -23,7 +23,7 @@ componentDidMount = async () => {
 
 pizzaSubmit=(event)=>{
 event.preventDefault();
-var newOrder={menuType:"Drink",size:"",item:"",toppings:[], price:0};
+var newOrder={id:this.props.orderLength,menuType:"Drink",size:"",item:"",toppings:[], price:0};
 
 if(event.target.smallSize.checked){ 
 newOrder.size="Small";
@@ -59,33 +59,33 @@ return (
 <h1>Grab a drink!</h1>
 <Form onSubmit={this.pizzaSubmit}>
 <fieldset>
-<Form.Group as={Row}>
-<Form.Label as="legend" column sm={1}>
-  Size
-</Form.Label>
-<Col sm={10}>
-  <Form.Check
-    type="radio"
-    label="Small $2.00"
-    name="sizes"
-    id="smallSize"
-  />
-  <Form.Check
-    type="radio"
-    label="Medium $3.00"
-    name="sizes"
-    id="mediumSize"
-  />
-  <Form.Check
-    type="radio"
-    label="Large $4.00"
-    name="sizes"
-    id="largeSize"
-    defaultChecked="true"
-  />
-</Col>
-</Form.Group>
-</fieldset>
+    <Form.Group as={Row}>
+      <Form.Label as="legend" column sm={1}>
+        Size
+      </Form.Label>
+      <Col sm={10}>
+        <Form.Check
+          type="radio"
+          label="Small $3.75"
+          name="sizes"
+          id="smallSize"
+        />
+        <Form.Check
+          type="radio"
+          label="Medium $6.00"
+          name="sizes"
+          id="mediumSize"
+        />
+        <Form.Check
+          type="radio"
+          label="Large $9.00"
+          name="sizes"
+          id="largeSize"
+          defaultChecked="true"
+        />
+      </Col>
+    </Form.Group>
+  </fieldset>
 
 <Form.Label>Drinks</Form.Label>
 <fieldset>

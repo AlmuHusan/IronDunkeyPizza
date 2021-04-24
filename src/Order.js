@@ -11,6 +11,7 @@ import Appetizers from './components/Appetizers';
 import Pizza from './components/Pizza';
 import BasicInfo from './components/BasicInfo';
 import OrderList from './components/OrderList';
+import EditSubmitOrder from './components/EditSubmitOrder';
 class Home extends React.Component{
 
   constructor(props) {
@@ -32,7 +33,27 @@ class Home extends React.Component{
           this.setState({order:processOrder})
           console.log(this.state.order)
       }
-
+      deleteOrder=(orderData)=>{
+        if(this.state.order.length>0){
+        var processOrder= this.state.order;
+        for(var i=0;i<processOrder.length;i++){
+            if(processOrder[i].menuType==orderData.menuType){
+                if(processOrder[i].size==orderData.size&&
+                    processOrder[i].item==orderData.item&&
+                    processOrder[i].toppings==orderData.toppings){
+                        processOrder.splice(i,1);
+                        break;
+                    }
+            }
+        }
+        this.setState({order:processOrder})
+        console.log(this.state.order)
+    }
+    }
+    
+    submitOrder=()=>{
+        this.setState({order:[]})
+    }
   
   render(){
 
@@ -49,17 +70,20 @@ class Home extends React.Component{
             <BasicInfo/>       
         </Tab>
         <Tab eventKey="pizza" title="Pizza">
-            <Pizza addOrderFunc={this.addOrder}/>
+            <Pizza orderLength={this.state.order.length} addOrderFunc={this.addOrder}/>
 
         </Tab>
         <Tab eventKey="appetizers" title="Appetizers">
-            <Appetizers addOrderFunc={this.addOrder}/>
+            <Appetizers orderLength={this.state.order.length} addOrderFunc={this.addOrder}/>
         </Tab>
         <Tab eventKey="drinks" title="Drinks">
-            <Drinks addOrderFunc={this.addOrder}/>
+            <Drinks orderLength={this.state.order.length} addOrderFunc={this.addOrder}/>
         </Tab>
         <Tab eventKey="desserts" title="Deserts">
-            <Desserts addOrderFunc={this.addOrder}/>
+            <Desserts orderLength={this.state.order.length} addOrderFunc={this.addOrder}/>
+        </Tab>
+        <Tab eventKey="editSubmit" title="Edit & Submit Order">
+            <EditSubmitOrder orderList={this.state.order} deleteOrderFunc={this.deleteOrder} submitOrderFunc={this.submitOrder}/>
         </Tab>
     </Tabs>
     </Col>

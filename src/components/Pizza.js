@@ -23,7 +23,7 @@ class Pizza extends React.Component{
 
   pizzaSubmit=(event)=>{
     event.preventDefault();
-    var newOrder={menuType:"Pizza",size:"",item:"",toppings:[], price:0};
+    var newOrder={id:this.props.orderLength,menuType:"Pizza",size:"",item:"",toppings:[], price:0};
     
     if(event.target.smallSize.checked){ 
       newOrder.size="Small";
