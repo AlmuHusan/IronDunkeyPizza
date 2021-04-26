@@ -32,7 +32,7 @@ class BasicInfo extends React.Component{
 
         if(event.target.store.checked)
           newUser.deliveryType="Store Pickup";
-        else
+        else if(event.target.delivery.checked)
           newUser.deliveryType="Delivery";
 
 
@@ -46,6 +46,7 @@ class BasicInfo extends React.Component{
           newUser.store="Lakewood";
         console.log(newUser);
         this.props.updateUserFunc(newUser);
+        document.getElementById("userForm").reset();
       }
   
   render(){
@@ -55,7 +56,7 @@ class BasicInfo extends React.Component{
   return (
     <div>
       <div>Basic Information</div>
-        <Form onSubmit={this.userSubmit}>
+        <Form id="userForm" onSubmit={this.userSubmit}>
         <Form.Group controlId="name">
           <Form.Label>Name</Form.Label>
           <Form.Control placeholder="Enter name" />

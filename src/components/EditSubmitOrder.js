@@ -38,10 +38,17 @@ class EditSubmitOrder extends React.Component{
         );
 
     }
+    var cityState="";
+    if(this.props.userData.city!=""){
+      cityState=<div>{this.props.userData.city},{this.props.userData.state} {this.props.userData.zip}</div>
+    }
   return (
     <div>
     <div>Review Your Order:</div>
-    {this.props.userData.name}
+    <div>Name: {this.props.userData.name}</div>
+    <div>Delivery Type: {this.props.userData.deliveryType}</div>
+    <div>Address: {this.props.userData.address}</div>
+    {cityState}
     <table>
       <tbody>
     {editOrder ?
