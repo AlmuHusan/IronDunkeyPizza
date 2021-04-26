@@ -19,7 +19,9 @@ class Home extends React.Component{
           this.state = {
               loaded: false,
               regions: 'All Region',
-              order:[]
+              order:[],
+              myOrders:[],
+              userData:{}
           };
 
 
@@ -50,6 +52,13 @@ class Home extends React.Component{
         console.log(this.state.order)
     }
     }
+
+    updateUser=(newUser)=>{
+        var user=newUser;
+        console.log(user);
+        this.setState({userData:user})
+        console.log(this.state.userData)
+    }
     
     submitOrder=()=>{
         this.setState({order:[]})
@@ -67,7 +76,7 @@ class Home extends React.Component{
 
     <Tabs defaultActiveKey="basicInfo" transition={false} id="noanim-tab-example">
         <Tab eventKey="basicInfo" title="Basic Information">
-            <BasicInfo/>       
+            <BasicInfo updateUserFunc={this.updateUser}/>       
         </Tab>
         <Tab eventKey="pizza" title="Pizza">
             <Pizza orderLength={this.state.order.length} addOrderFunc={this.addOrder}/>
@@ -83,7 +92,7 @@ class Home extends React.Component{
             <Desserts orderLength={this.state.order.length} addOrderFunc={this.addOrder}/>
         </Tab>
         <Tab eventKey="editSubmit" title="Edit & Submit Order">
-            <EditSubmitOrder orderList={this.state.order} deleteOrderFunc={this.deleteOrder} submitOrderFunc={this.submitOrder}/>
+            <EditSubmitOrder userData={this.state.userData} orderList={this.state.order} deleteOrderFunc={this.deleteOrder} submitOrderFunc={this.submitOrder}/>
         </Tab>
     </Tabs>
     </Col>

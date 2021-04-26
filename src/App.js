@@ -6,7 +6,7 @@ import Home from './Home.js';
 import About from './About';
 import Contact from './Contact';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component{
 
@@ -33,11 +33,11 @@ class App extends React.Component{
   return (
     <div>
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="">Iron Donkey Pizza</Navbar.Brand>
+      <Navbar.Brand href="/">Iron Donkey Pizza</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="">Home</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="about" className="mr-sm-2">About Us</Nav.Link>
           <Nav.Link href="contact" className="mr-sm-2">Contact</Nav.Link>
         </Nav>
@@ -52,10 +52,19 @@ class App extends React.Component{
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route exact path="/" component={() => <Home />} />
-
     </Switch>
-
   </Router>
+  <div 
+    style={{ width:"100%",
+    height:"25px",
+    textAlign:"center",
+    color:"white",
+    bottom: 0,
+    position:"fixed",
+    backgroundColor:"gray"
+    }}>
+      © 2021 Iron Donkey Pizza Inc
+    </div>
   </div>
     
     );

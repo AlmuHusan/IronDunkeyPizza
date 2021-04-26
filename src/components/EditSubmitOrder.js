@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 
 class EditSubmitOrder extends React.Component{
 
@@ -40,6 +41,7 @@ class EditSubmitOrder extends React.Component{
   return (
     <div>
     <div>Review Your Order:</div>
+    {this.props.userData.name}
     <table>
       <tbody>
     {editOrder ?
