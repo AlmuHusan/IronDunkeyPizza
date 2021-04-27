@@ -9,9 +9,11 @@ import Desserts from './components/Desserts';
 import Drinks from './components/Drinks';
 import Appetizers from './components/Appetizers';
 import Pizza from './components/Pizza';
-import BasicInfo from './components/BasicInfo';
+import BasicInfo from './components/basicInfo';
 import OrderList from './components/OrderList';
 import EditSubmitOrder from './components/EditSubmitOrder';
+import axios from 'axios';
+import { json } from 'body-parser';
 class Home extends React.Component{
 
   constructor(props) {
@@ -61,9 +63,15 @@ class Home extends React.Component{
     }
     
     submitOrder=()=>{
-        this.setState({order:[]})
+        const res = axios
+            .post("./backend/api/order",{
+                OrderList: JSON.stringify(this.state.order)
+            }, {headers: {
+                'content-type': 'text/json'
+            }
+            })
+        this.setState({order:[]});
     }
-  
   render(){
 
 
