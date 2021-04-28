@@ -13,7 +13,7 @@ const bodyParser = require('body-parser');
 app.use( bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-const User = require('./User'); 
+const User = require('../model/User'); 
 const bcrypt = require('bcrypt');
 router.post('/user', (request, response) => {
       const user = new User({

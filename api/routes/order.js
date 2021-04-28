@@ -9,18 +9,18 @@ router.get('/', (req, res) => {
         .catch(err => console.log(err))
 })
 
-router.post('/', (req, res) => {
+router.post('/', (params) => {
     const { OrderList } = req.body;
     const newOrder = new order({
         OrderList: order
     })
     newOrder.save()
         .then(() => res.json({
-            message: "Created account successfully"
+            message: "Created order successfully"
         }))
         .catch(err => res.status(400).json({
             "error": err,
-            "message": "Error creating account"
+            "message": "Error creating order"
         }))
 })
 module.exports = router 
