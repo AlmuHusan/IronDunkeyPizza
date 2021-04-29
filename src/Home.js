@@ -4,7 +4,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import { Image } from 'react-bootstrap';
 import pic from './ryu.jpeg';
 import pic2 from './donkey.jpg';
-import pic3 from './cat.jpg';
+import pic3 from './cheese.jfif';
+import background from './woodbackdrop.png'
 class Home extends React.Component{
 
   constructor(props) {
@@ -29,7 +30,7 @@ class Home extends React.Component{
 
   return (
     
-    <Carousel style={{width: 800, height: 400, marginLeft:"auto",marginRight:"auto"}}>
+    <Carousel style={{width: 800, height: 400, marginLeft:"auto",marginRight:"auto",}}>
   <Carousel.Item>
     <img
       className="d-block w-100"
@@ -38,8 +39,7 @@ class Home extends React.Component{
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h3>Welcome to Iron Donkey Pizza</h3>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -51,8 +51,7 @@ class Home extends React.Component{
     />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3>Find us at our many locations.</h3>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -64,8 +63,7 @@ class Home extends React.Component{
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h3>Try out our cheesy pizza.</h3>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>

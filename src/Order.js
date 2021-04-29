@@ -79,7 +79,13 @@ class Home extends React.Component{
 
   return (
     
-    <Container>
+    <Container style={{
+        color: "whitesmoke",
+        visited: "whitesmoke",
+        hover: "whitesmoke",
+        link: "whitesmoke",
+        active: "whitesmoke"
+    }}>
   <Row>
     <Col sm={7}>
 

@@ -24,7 +24,9 @@ class Contact extends React.Component{
 
   return (
     
-    <div>
+    <div style={{
+      color: "whitesmoke"
+    }}>
       <h3>Contact Us:</h3>
       <h5>Email:</h5>
       <div>theirondunkey@pizza.com</div>

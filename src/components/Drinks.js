@@ -66,19 +66,19 @@ return (
       <Col sm={10}>
         <Form.Check
           type="radio"
-          label="Small $3.75"
+          label="Small $2.00"
           name="sizes"
           id="smallSize"
         />
         <Form.Check
           type="radio"
-          label="Medium $6.00"
+          label="Medium $3.00"
           name="sizes"
           id="mediumSize"
         />
         <Form.Check
           type="radio"
-          label="Large $9.00"
+          label="Large $4.00"
           name="sizes"
           id="largeSize"
           defaultChecked="true"

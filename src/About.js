@@ -37,8 +37,6 @@ class About extends React.Component{
         color: "whitesmoke"
       }}>About Us:</h3>
       <img
-
-      style={{width: 400, height: 400,maxWidth: "400"}}
       src={pic}
       alt="First slide"
     />
