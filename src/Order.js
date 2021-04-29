@@ -63,10 +63,11 @@ class Home extends React.Component{
     }
     
     submitOrder=()=>{
+        let data = JSON.stringify({
+            OrderList: this.state.order
+        });
         const res = axios
-            .post('http://localhost:3000/order',{
-                OrderList: JSON.stringify(this.state.order)
-            }, {headers: {
+            .post('http://localhost:9000/order', data, {headers: {
                 'content-type': 'text/json'
             }
             })

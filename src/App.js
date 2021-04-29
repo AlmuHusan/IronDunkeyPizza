@@ -8,6 +8,7 @@ import Contact from './Contact';
 import MyOrder from './MyOrder';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import background from "./woodbackdrop.png"
 
 class App extends React.Component{
 
@@ -32,7 +33,9 @@ class App extends React.Component{
 
 
   return (
-    <div>
+    <div style={{
+      backgroundImage: 'url(/woodbackdrop.png)'
+    }}>
     <Navbar bg="light" expand="lg">
       <Navbar.Brand href="/">Iron Donkey Pizza</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />

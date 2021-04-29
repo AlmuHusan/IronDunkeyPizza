@@ -1,18 +1,18 @@
 const express = require('express');
-const router = express.Router()
+const router = express.Router();
 
 const order = require('../model/order');
 
 router.get('/', (req, res) => {
     order.find()
-        .then(order => res(order))
+        .then(orders => res.json(orders))
         .catch(err => console.log(err))
-})
+});
 
-router.post('/', (params) => {
+router.post('/', (req, res) => {
     const { OrderList } = req.body;
     const newOrder = new order({
-        OrderList: order
+        OrderList: OrderList
     })
     newOrder.save()
         .then(() => res.json({
@@ -22,5 +22,5 @@ router.post('/', (params) => {
             "error": err,
             "message": "Error creating order"
         }))
-})
-module.exports = router 
+});
+module.exports = router; 
